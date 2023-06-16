@@ -16,7 +16,7 @@ const Shoes = () => {
         return <Spinner/>
     }
     return (
-        <div className='flex justify-between items-center py-6 px-10 container mx-auto'>
+        <div className='flex justify-between items-center py-6 px-10 container mx-auto items'>
             {
              shoes &&  shoes.map(el => <ShoesItem key={el.id} title={el.title} price={el.price} img={el.img}/>)
             }

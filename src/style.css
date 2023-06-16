@@ -27,8 +27,9 @@
 .ourmain{
     margin-top: 30px;
 } */
-.shoesitem{
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
+.items{
+    flex-wrap: wrap;
+}
+.bg-white{
+    margin-bottom: 20px;
 }
