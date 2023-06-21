@@ -6,6 +6,7 @@ import Contacts from '../pages/Contacts';
 import Products from '../pages/Products';
 import SignUp from '../pages/SignUp';
 import SignIn from '../pages/SignIn';
+import ProductPage from '../pages/ProductItem';
 
 const routes = () => {
     return (
@@ -17,6 +18,7 @@ const routes = () => {
                 <Route path='contacts' element={<Contacts/>} />
                 <Route path='signup' element={<SignUp/>} />
                 <Route path='signin' element={<SignIn/>} />
+                <Route path='productpage/:id' element={<ProductPage/>} />
             </Routes>
             
         </div>
