@@ -1,7 +1,18 @@
 import React from 'react';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Link , NavLink} from 'react-router-dom';
+import Modal from '../../components/modal/index'
+import ShopCartModal from '../../components/ShopCart/index';
+import AddOutlineIcon from '@rsuite/icons/AddOutline';
+import addIcon from '../../assets/icons/icon1.png';
+import carticon from '../../assets/icons/carticon.png';
+
 
 const Header = () => {
+  const {itemInCart} = useSelector(state => state.cart)
+  const [modal, setModal] = useState(false)
+  const [cart, setCart] = useState(false)
   return (
     <>
       <header className='ournav'>
@@ -25,6 +36,19 @@ const Header = () => {
                   <li><NavLink to='/about' class="text-gray-700 hover:text-indigo-600 text-md ">About</NavLink></li>
                   <li><NavLink to='/products' class="text-gray-700 hover:text-indigo-600 text-md ">Products</NavLink></li>
                   <li><NavLink to='/contacts' class="text-gray-700 hover:text-indigo-600 text-md ">Contacts</NavLink></li>
+                  <li><button onClick={() => setModal(true)} class="w-15 h-10 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"><img className="w-5" src={addIcon}/></button></li>
+                  <li><div style={{width: "18px",
+    color: "white",
+    borderRadius: "50%",
+    backgroundColor: "red",
+    height:" 18px",
+    top:'13px',
+    display:'flex',
+    justifyContent:'center',
+    alignItems: "center",
+    position:'absolute'}}>{itemInCart.length}</div><button onClick={() => setCart(true)} class="w-15 h-10 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"><img className="w-5" src={carticon}/></button></li>
+                  {modal && <Modal modal={modal} setModal={setModal}/>}
+                  {cart && <ShopCartModal cart={cart} setCart={setCart}/>}
                 </ul>
 
                 <div class="md:flex items-center hidden space-x-4 ml-8 lg:ml-12">
